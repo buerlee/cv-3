@@ -1,10 +1,7 @@
 cv academic: cv.tex
-	mkdir -p out
-	rubber --into out --jobname $@ --pdf $<
-	mv out/$@.pdf .
-
-# Needs to be refactored.
 cover: cover.tex
+
+cv academic cover:
 	mkdir -p out
 	rubber --into out --jobname $@ --pdf $<
 	mv out/$@.pdf .

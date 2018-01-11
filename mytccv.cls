@@ -11,7 +11,7 @@
 
 \hyphenation{eco-system}
 % Packages
-\RequirePackage{bookman,etoolbox,hyperref,marvosym,needspace,tabularx,xcolor}
+\RequirePackage{bookman,etoolbox,hyperref,marvosym,needspace,tabularx,xcolor,graphicx}
 \RequirePackage[hmargin=1.25cm,vmargin=1.25cm,twocolumn,columnsep=1.25cm]{geometry}
 
 % Colors
@@ -28,14 +28,20 @@
 \hypersetup{colorlinks,breaklinks,urlcolor=text2}
 \pagenumbering{gobble}
 
-\renewcommand\title[2]{%
+\renewcommand\title[3]{%
     \twocolumn[%
     \begin{center}
 	{\Huge\color{title} #1}
 	\medskip\\
 	{\Large\color{text2} #2}
-	\bigskip
-    \end{center}]}
+    \end{center}
+    \def\photo{#3}
+    \if\photo\empty
+    \else
+    \begin{picture}(0,0)
+    \put(0,10){\hbox{\includegraphics[height=2.5cm]{\photo}}}
+    \end{picture}
+    \fi]}
 
 % Overrides the \section command to capitalize every
 % word for cosmetic purposes and draws a rule under it.
